@@ -1,0 +1,28 @@
+
+.layout{
+  display: flex;
+  background-color:#e8f0ef;
+
+  .sidebar{
+    height: 100vh;
+    margin: 15px;
+
+    div{
+      background-color: #002c54;
+      color: #ffffff;
+      font-weight: 400;
+      border-radius: 10px;
+    }
+    hr {
+      margin: 25px 0;
+      height: 1px;
+      border: 0;
+      background: linear-gradient(63deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,248,248,0) 100%);
+    }
+  }
+
+  .container{
+    flex-grow: 1;
+    margin-top: 15px;
+  }
+}

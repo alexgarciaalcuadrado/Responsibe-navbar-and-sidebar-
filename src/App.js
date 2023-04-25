@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import MedilineTheme from './theme/MedilineTheme';
+import SidebarLayout from "./components/Layout";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Dashboard from './pages/dashboard';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={MedilineTheme}>
+      <CssBaseline />
+      <BrowserRouter>
+      <SidebarLayout>
+        <Routes>
+          <Route exact path="/" element={<Dashboard />}/>
+        </Routes> 
+       </SidebarLayout>
+       </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
