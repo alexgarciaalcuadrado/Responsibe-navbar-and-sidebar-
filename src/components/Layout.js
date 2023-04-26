@@ -1,19 +1,22 @@
 import { memo, useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, Typography } from "@mui/material";
+import { Box, ListItem, Typography, ListItemText } from "@mui/material";
 import { Link } from "react-router-dom";
 
+import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SellIcon from '@mui/icons-material/Sell';
 import ViewQuiltIcon from "@mui/icons-material/ViewQuilt";
-import BackupTableIcon from "@mui/icons-material/BackupTable";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import AssessmentIcon from '@mui/icons-material/Assessment';
 import BuildCircleIcon from "@mui/icons-material/BuildCircle";
 import Logo from "../assets/images/logo.png";
 
-const Item = memo(({ title, to, icon, selected, setSelected }) => {
+
+const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
   return (
     <MenuItem
       key={title}
@@ -24,9 +27,73 @@ const Item = memo(({ title, to, icon, selected, setSelected }) => {
     >
       <Typography>{title}</Typography>
       <Link to={to} />
+      {subItems?.map((subItem) => (
+         <ListItem key={subItem.title}>
+           <ListItemText>{subItem.title}</ListItemText>
+         </ListItem>
+       ))}
     </MenuItem>
   );
 });
+
+const items = [
+  { title: "Dashboard", icon: <ViewQuiltIcon /> },
+  { title: "Personas", icon: <PeopleAltIcon />, subItems:[
+    {
+      title: "Pacientes"
+    },
+    {
+      title: "Profesionales"
+    }]
+  },
+  { title: "Consultas", icon: <HandshakeIcon />, subItems:[
+    {
+      title: "Guardia Virtual"
+    },
+    {
+      title: "Turnos programados"
+    }] 
+  },
+  { title: "Convenios", icon: <HandshakeIcon />, subItems:[
+    {
+      title: "Empresa"
+    },
+    {
+      title: "Gobierno"
+    },
+    {
+      title: "Prestadores"
+    }] 
+  },
+  { title: "Ventas", icon: <SellIcon />,
+  subItems:[
+    {
+      title: "Directa"
+    },
+    {
+      title: "Intermediarios"
+    }]  
+  },
+  { title: "Cobranzas", icon: <MonetizationOnIcon />,
+  subItems:[
+    {
+      title: "Entidades de Cobranzas"
+    }]  
+  },
+  { title: "Comisiones", icon: <ReceiptLongIcon />,
+  subItems:[
+    {
+      title: "Liquidación"
+    },
+    {
+      title: "Esquemas Comisionales"
+    }]  
+   },
+  { title: "Altas", icon: <MoveToInboxIcon /> },
+  { title: "Reportes", icon: <AssessmentIcon /> },
+  { title: "Configuración", icon: <BuildCircleIcon /> },
+  { title: "Cerrar Sesión", icon: <LogoutIcon /> },
+]
 
 const SidebarLayout = ({ children }) => {
   const [selected, setSelected] = useState("Dashboard");
@@ -66,20 +133,12 @@ const SidebarLayout = ({ children }) => {
               </Box>
             </Box>
             <hr className="faded-out-hr" />
-            {[
-              { title: "Dashboard", icon: <ViewQuiltIcon /> },
-              { title: "Reportes", icon: <BackupTableIcon /> },
-              { title: "Facturación", icon: <ReceiptLongIcon /> },
-              { title: "Cobranzans", icon: <CurrencyExchangeIcon /> },
-              { title: "Notificaciones", icon: <NotificationsIcon /> },
-              { title: "Usuarios", icon: <PeopleAltIcon /> },
-              { title: "Altas", icon: <GroupAddIcon /> },
-              { title: "Configuración", icon: <BuildCircleIcon /> },
-            ].map(({ title, icon }) => (
+            {items.map(({ title, icon, subItems }) => (
               <Item
                 title={title}
                 to="/"
                 icon={icon}
+                subItems={subItems || []}
                 selected={selected}
                 setSelected={setSelected}
               />
