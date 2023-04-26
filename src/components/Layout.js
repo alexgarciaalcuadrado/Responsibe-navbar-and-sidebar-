@@ -1,6 +1,6 @@
 import { memo, useState } from "react";
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, ListItem, Typography, ListItemText } from "@mui/material";
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { Box, ListItem, Typography, ListItemText, List } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
@@ -17,7 +17,42 @@ import Logo from "../assets/images/logo.png";
 
 
 const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
-  return (
+  let size = subItems ? Object.keys(subItems).length : 0;
+
+  return size !== 0 ? (
+    <SubMenu
+      label={title}
+      key={title}
+      active={selected === title}
+      className="menu-item"
+      onClick={() => setSelected(title)}
+      icon={icon}
+    >
+      {subItems?.map((subItem) => (
+        <Box sx={{
+          "& .MuiTypography-root ": {
+            fontSize: "13px",
+          },
+          "& .ps-menu-button ": {
+            marginRight: "5px",
+          },
+          "& .ps-menu-button:hover ": {
+            background: `#002c54 !important`,
+          },
+          "& .ps-menu-button:active ": {
+            background: `#002c54 !important`,
+          },
+          }}>
+         <MenuItem key={subItem.title}>
+            <ListItemText sx={{ 
+              textAlign: "end"
+              }} className="underline-grow">{subItem.title}</ListItemText>
+         </MenuItem>
+         </Box>
+
+       ))}
+    </SubMenu>
+  ) :(
     <MenuItem
       key={title}
       active={selected === title}
@@ -27,11 +62,6 @@ const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
     >
       <Typography>{title}</Typography>
       <Link to={to} />
-      {subItems?.map((subItem) => (
-         <ListItem key={subItem.title}>
-           <ListItemText>{subItem.title}</ListItemText>
-         </ListItem>
-       ))}
     </MenuItem>
   );
 });
@@ -107,10 +137,10 @@ const SidebarLayout = ({ children }) => {
             margin: "5px",
           },
           "& .ps-menu-button:hover ": {
-            background: `rgba(255, 255, 255, 0.2)`,
+            background: `#6d6d6d !important`,
           },
           "& .ps-menu-button:active ": {
-            background: `linear-gradient(195deg, #49a3f1, #1A73E8)`,
+            background: `linear-gradient(195deg, #49a3f1, #1A73E8) !important`,
           },
         }}
       >
@@ -133,16 +163,16 @@ const SidebarLayout = ({ children }) => {
               </Box>
             </Box>
             <hr className="faded-out-hr" />
-            {items.map(({ title, icon, subItems }) => (
-              <Item
-                title={title}
+            {items.map((item) => {
+              return (<Item
+                title={item.title}
                 to="/"
-                icon={icon}
-                subItems={subItems || []}
+                icon={item.icon}
+                subItems={item.subItems}
                 selected={selected}
                 setSelected={setSelected}
-              />
-            ))}
+              />)
+            })}
           </Menu>
         </Sidebar>
       </Box>

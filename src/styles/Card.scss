@@ -1,4 +1,17 @@
+.cards-container{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 260px);
+
+    @include for-laptop {
+        grid-template-columns: repeat(2, 260px);
+    }
+}
+
 .card-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .icon-container{
         width: 60px;
@@ -7,8 +20,7 @@
         border-radius: 15px;
         position: relative;
         z-index: 1000;
-        top: 40px;
-        left: 25px;
+        left: 24px;
     }
 
     .card{
@@ -18,6 +30,8 @@
         align-items: flex-end;
         justify-content: end;
         text-align: end;
+        position: relative;
+        bottom: 40px;
 
         .title{
             font-size: 16px;

@@ -1,27 +1,76 @@
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
+import { Box } from "@mui/material";
 
-
-const DashboardCard = ({ icon, title, number, extraNumber, extraLabel, iconColor }) => {
-    return (
+const DashboardCard = ({
+  icon,
+  title,
+  number,
+  extraNumber,
+  extraLabel,
+  iconColor,
+}) => {
+  return (
     <div className="card-container">
-      <Card className="icon-container" sx={{ maxWidth: 345 }}>
-        <CardContent styles={{backgroundColor:iconColor === "red" ? "red" : "white"}}>{icon}</CardContent>
-      </Card>
-      <Card className="card" sx={{ maxWidth: 345 }}>
-        <CardContent>
-          <Typography gutterBottom variant="h6" color="#7b809a" className="title">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {number}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {extraNumber} {extraLabel}
-          </Typography>
-        </CardContent>
-      </Card>
+      <div>
+        <Card className="icon-container" sx={{ maxWidth: 345 }}>
+          <Box
+            sx={{
+              backgroundColor: iconColor,
+              background: iconColor,
+              color: "white",
+            }}
+          >
+            <CardContent>{icon}</CardContent>
+          </Box>
+        </Card>
+        <Card
+          className="card"
+          sx={{
+            maxWidth: 345,
+            borderRadius: "20px",
+            boxShadow: "0px 14px 19px -12px rgba(4,2,26,0.62)",
+          }}
+        >
+          <CardContent>
+            <Box
+              sx={{
+                position: "relative",
+                bottom: "10px",
+              }}
+            >
+              <Typography
+                style={{ margin: 0 }}
+                gutterBottom
+                variant="h6"
+                color="#7b809a"
+                className="title"
+              >
+                {title}
+              </Typography>
+              <Typography
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "900",
+                  color: "rgb(114 114 114)",
+                }}
+                color="text.secondary"
+              >
+                {number}
+              </Typography>
+            </Box>
+            <Box sx={{}}>
+              <Typography variant="body2" color="text.secondary">
+                <span style={{ color: "#4CAF50", fontWeight: "600" }}>
+                  {extraNumber}
+                </span>{" "}
+                {extraLabel}
+              </Typography>
+            </Box>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };

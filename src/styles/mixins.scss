@@ -1,0 +1,4 @@
+
+@mixin for-laptop {
+  @media (max-width: 1300px) { @content; }
+}

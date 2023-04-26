@@ -26,3 +26,9 @@
     margin-top: 15px;
   }
 }
+
+.underline-grow:hover {
+  transition: all 0.3s ease-in-out;
+  transform-origin: right;
+  transform: scaleX(1.1);
+}
