@@ -39,6 +39,25 @@ const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
           "& .ps-menu-button:hover ": {
             background: `#002c54 !important`,
           },
+
+          "& .ps-menu-button::after ": {
+            content: '""',
+            position: "absolute",
+            width: "100%",
+            transform: "scaleX(0)",
+            height: "2px",
+            bottom: 0,
+            left: 0,
+            backgroundColor: "#0087ca",
+            transformOrigin: "bottom right",
+            transition: "transform 0.25s ease-out",
+          },
+
+          "& .ps-menu-button:hover::after ": {
+            transform: "scaleX(1)",
+            transformOrigin: "bottom left",
+          },
+
           "& .ps-menu-button:active ": {
             background: `#002c54 !important`,
           },
@@ -46,7 +65,7 @@ const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
          <MenuItem key={subItem.title}>
             <ListItemText sx={{ 
               textAlign: "end"
-              }} className="underline-grow">{subItem.title}</ListItemText>
+              }}>{subItem.title}</ListItemText>
          </MenuItem>
          </Box>
 

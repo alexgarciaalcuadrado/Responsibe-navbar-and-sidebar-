@@ -4,7 +4,7 @@
   background-color:#e8f0ef;
 
   .sidebar{
-    height: 100vh;
+    height: max-content;
     margin: 15px;
 
     div{
@@ -28,7 +28,29 @@
 }
 
 .underline-grow:hover {
-  transition: all 0.3s ease-in-out;
-  transform-origin: right;
-  transform: scaleX(1.1);
+  display: inline-block;
+  position: relative;
+}
+/* 
+.underline-grow::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+} */
+
+.dashboard-chart{
+  display: flex;
+  justify-content: space-around;
 }

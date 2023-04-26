@@ -1,47 +1,46 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useMemo } from "react";
-
-// porp-types is a library for typechecking of props
-import PropTypes from "prop-types";
 
 // react-chartjs-2 components
 import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
 // @mui material components
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import Icon from "@mui/material/Icon";
-
-// Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import { Box } from "@mui/material";
+import { Typography } from "@material-ui/core";
 
 // ReportsBarChart configurations
-import configs from "examples/Charts/BarCharts/ReportsBarChart/configs";
+import configs from "./configs";
 
-function ReportsBarChart({ color, title, description, date, chart }) {
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+function ReportsBarChart({ color, title, description, date, chart, background }) {
   const { data, options } = configs(chart.labels || [], chart.datasets || {});
 
   return (
+    <div style={{ width: "20rem"}}>
     <Card sx={{ height: "100%" }}>
-      <MDBox padding="1rem">
+      <Box padding="1rem">
         {useMemo(
           () => (
-            <MDBox
+            <Box
               variant="gradient"
               bgColor={color}
               borderRadius="lg"
@@ -50,47 +49,48 @@ function ReportsBarChart({ color, title, description, date, chart }) {
               pr={0.5}
               mt={-5}
               height="12.5rem"
+              sx={{
+                background:background,
+                margin: 0,
+                borderRadius: "10px"
+              }}
             >
               <Bar data={data} options={options} />
-            </MDBox>
+            </Box>
           ),
-          [chart, color]
+          [chart, color, data, options]
         )}
-        <MDBox pt={3} pb={1} px={1}>
-          <MDTypography variant="h6" textTransform="capitalize">
+        <Box pt={3} pb={1} px={1}>
+          <Typography variant="h6" textTransform="capitalize" style={{
+            color: "#344767",
+          }}>
             {title}
-          </MDTypography>
-          <MDTypography component="div" variant="button" color="text" fontWeight="light">
+          </Typography>
+          <Typography style={{
+            color: "#7b809a",
+          }} fontWeight="light">
             {description}
-          </MDTypography>
-          <Divider />
-          <MDBox display="flex" alignItems="center">
-            <MDTypography variant="button" color="text" lineHeight={1} sx={{ mt: 0.15, mr: 0.5 }}>
+          </Typography>
+          <Divider style={{margin:"10px"}}/>
+          
+        </Box>
+      </Box>
+      <Box display="flex" sx={{
+            opacity: 1,
+            background: "transparent",
+            color: "#7b809a",
+                paddingLeft: "20px"
+          }}>
+            <Typography variant="button" lineHeight={1} sx={{ mt: 0.15, mr: 0.5, marginRight: "5px" }}>
               <Icon>schedule</Icon>
-            </MDTypography>
-            <MDTypography variant="button" color="text" fontWeight="light">
+            </Typography>
+            <Typography>
               {date}
-            </MDTypography>
-          </MDBox>
-        </MDBox>
-      </MDBox>
+            </Typography>
+          </Box>
     </Card>
+    </div>
   );
 }
-
-// Setting default values for the props of ReportsBarChart
-ReportsBarChart.defaultProps = {
-  color: "dark",
-  description: "",
-};
-
-// Typechecking props for the ReportsBarChart
-ReportsBarChart.propTypes = {
-  color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "dark"]),
-  title: PropTypes.string.isRequired,
-  description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  date: PropTypes.string.isRequired,
-  chart: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.array, PropTypes.object])).isRequired,
-};
 
 export default ReportsBarChart;
