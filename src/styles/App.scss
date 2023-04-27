@@ -7,6 +7,14 @@
     height: max-content;
     margin: 15px;
 
+    .sidebar-menu{
+      @include for-laptop{
+        display: none;
+      }
+      
+    }
+    
+
     div{
       background-color: #002c54;
       color: #ffffff;
@@ -27,28 +35,29 @@
   }
 }
 
-.underline-grow:hover {
-  display: inline-block;
-  position: relative;
-}
-/* 
-.underline-grow::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #0087ca;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+.navbar{
+  background-color: transparent!important;
+  transition: all 0.5s;
 }
 
-.hover-underline-animation:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-} */
+.navbar-scrolled{
+  border: none;
+  border-radius: 15px;
+  backdrop-filter: saturate(200%) blur(2.875rem);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0rem 0rem 0.0625rem 0.0625rem rgba(255, 255, 255, 0.9), 0rem 1.25rem 1.6875rem 0rem rgba(0, 0, 0, 0.05);
+}
+
+.navbar-open-sidebar{
+  display: none !important;
+  color: #626974;
+  margin-right: 25px;
+  cursor: pointer;
+
+  @include for-laptop{
+    display: inline-block !important;
+  }
+}
 
 .dashboard-chart{
   display: flex;
