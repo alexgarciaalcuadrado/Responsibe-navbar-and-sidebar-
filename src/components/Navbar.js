@@ -10,7 +10,10 @@ import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
     const location = useLocation();
     const [navClass, setNavClass] = useState("navbar sticky-top navbar-expand-lg navbar-light bg-light"); 
-    const pathName = location?.pathname === "/" ? "Dashboard" : ""
+    const pathName = (location?.pathname === "/" && "Dashboard") || 
+        (location?.pathname === "/personas/pacientes" && "Personas / Pacientes") ||
+        (location?.pathname === "/personas/profesionales" && "Personas / Profesionales")
+
 
     const handleScroll = () => {
         const nav = document.querySelector(".navbar");

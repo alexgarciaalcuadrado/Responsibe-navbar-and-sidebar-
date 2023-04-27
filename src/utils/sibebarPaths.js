@@ -10,13 +10,13 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import BuildCircleIcon from "@mui/icons-material/BuildCircle";
 
 export const items = [
-    { title: "Dashboard", icon: <ViewQuiltIcon /> },
+    { title: "Dashboard", icon: <ViewQuiltIcon />, path:"/" },
     { title: "Personas", icon: <PeopleAltIcon />, subItems:[
       {
-        title: "Pacientes"
+        title: "Pacientes", path:"personas/pacientes"
       },
       {
-        title: "Profesionales"
+        title: "Profesionales", path:"personas/profesionales"
       }]
     },
     { title: "Consultas", icon: <HandshakeIcon />, subItems:[

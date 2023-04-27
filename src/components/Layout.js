@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Box, Typography, ListItemText } from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
@@ -8,9 +9,9 @@ import Logo from "../assets/images/logo.png";
 import Navbar from "./Navbar";
 
 
-const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
+const Item = memo(({ title, path, icon, selected, setSelected, subItems }) => {
   let size = subItems ? Object.keys(subItems).length : 0;
-
+  const navigate = useNavigate();
   return size !== 0 ? (
     <SubMenu
       label={title}
@@ -57,7 +58,7 @@ const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
          <MenuItem key={subItem.title}>
             <ListItemText sx={{ 
               textAlign: "end"
-              }}>{subItem.title}</ListItemText>
+              }} onClick={() => {navigate(subItem.path)}}>{subItem.title}</ListItemText>
          </MenuItem>
          </Box>
 
@@ -68,11 +69,14 @@ const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
       key={title}
       active={selected === title}
       className="menu-item"
-      onClick={() => setSelected(title)}
+      onClick={() => {
+        setSelected(title)
+        navigate(path);
+      }}
       icon={icon}
     >
       <Typography>{title}</Typography>
-      <Link to={to} />
+      <Link to={path} />
     </MenuItem>
   );
 });
@@ -147,7 +151,7 @@ const SidebarLayout = ({ children }) => {
             {items.map((item) => {
               return (<Item
                 title={item.title}
-                to="/"
+                path="/"
                 icon={item.icon}
                 subItems={item.subItems}
                 selected={selected}

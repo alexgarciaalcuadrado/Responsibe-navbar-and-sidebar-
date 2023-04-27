@@ -5,6 +5,8 @@ import MedilineTheme from './theme/MedilineTheme';
 import SidebarLayout from "./components/Layout";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Dashboard from './pages/dashboard';
+import Patients from "./pages/patients";
+import Profetionals from "./pages/profetionals";
 
 const App = () => {
 
@@ -15,6 +17,9 @@ const App = () => {
       <SidebarLayout>
         <Routes>
           <Route exact path="/" element={<Dashboard />}/>
+          <Route exact path="/personas/pacientes" element={<Patients/>}/>
+          <Route exact path="/personas/profesionales" element={<Profetionals/>}/>
+
         </Routes> 
        </SidebarLayout>
        </BrowserRouter>
