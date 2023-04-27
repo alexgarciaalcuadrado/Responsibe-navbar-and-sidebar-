@@ -1,57 +1,139 @@
-import { useEffect, useState } from "react";
-
 import { Box, Typography } from "@mui/material";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 
 //icons
 import SearchIcon from "@mui/icons-material/Search";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import { ThemeProvider } from '@mui/material/styles';
+import { MuiTheme } from '../styles/MuiDataTableStyle';
+import MUIDataTable from "mui-datatables";
+
+import {
+  textLabels,
+  downloadOptions,
+  sortFunction,
+} from "../utils/muiTableOptions";
+
+const columns = [
+  {
+    name: "id",
+    label: "Id",
+    options: {
+      filter: false,
+      sort: true,
+    },
+  },
+  {
+    name: "doctor",
+    label: "Profesional",
+    options: {
+      filter: false,
+      sort: true,
+    },
+  },
+  {
+    name: "alta",
+    label: "Fecha de alta",
+    options: {
+      filter: true,
+      sort: true,
+    },
+  },
+  {
+    name: "consults",
+    label: "Consultas",
+    options: {
+      filter: false,
+      sort: true,
+    },
+  },
+  {
+    name: "state",
+    label: "Activo",
+    options: {
+      filter: false,
+      sort: true,
+    },
+  },
+  {
+    name: "matricula",
+    label: "Matricula",
+    options: {
+      filter: false,
+      sort: true,
+    },
+  },
+  {
+    name: "acciones",
+    label: "Acciones",
+    options: {
+      customBodyRenderLite: (dataIndex, rowIndex) => {
+        return (
+          <>
+            <SearchIcon style={{ cursor: "pointer", margin: "0 3px" }} />
+            <EditIcon style={{ cursor: "pointer", margin: "0 3px" }} />
+            <DeleteIcon style={{ cursor: "pointer", margin: "0 3px" }} />
+            <AttachMoneyIcon style={{ cursor: "pointer", margin: "0 3px" }} />
+          </>
+        );
+      },
+    },
+    filter: false,
+    sort: false,
+  },
+];
+
+const options = {
+  textLabels,
+  downloadOptions,
+  filter: true,
+  selectableRows: "none",
+  fixedHeader: false,
+  filterType: "dropdown",
+  responsive: "standard",
+  customSort: sortFunction,
+  draggableColumns: { enabled: true },
+};
 
 const Users = () => {
   const rows = [
     {
-      id: "1",
+      id: 1,
       doctor: "Joaquín Altamirano",
       alta: "12/1/2023",
-      consults: "100",
+      consults: 100,
       state: "Activo",
-      matricula: "98943",
+      matricula: 98943,
     },
     {
-      id: "3",
+      id: 3,
       doctor: "Maia Rodriguez",
       alta: "1/2/2023",
-      consults: "30",
+      consults: 30,
       state: "Activo",
-      matricula: "88732",
+      matricula: 88732,
     },
     {
-      id: "4",
+      id: 4,
       doctor: "Marta Lachio",
       alta: "17/3/2023",
-      consults: "36",
+      consults: 36,
       state: "Activo",
-      matricula: "88450",
+      matricula: 88450,
     },
     {
-      id: "5",
+      id: 5,
       doctor: "Jorge Fernandez",
       alta: "20/1/2023",
-      consults: "50",
+      consults: 50,
       state: "Activo",
-      matricula: "13244",
+      matricula:1324,
     },
   ];
 
   return (
+    <ThemeProvider theme={MuiTheme}>
     <div className="users">
       <div className="users-table-container">
         <Box
@@ -78,69 +160,15 @@ const Users = () => {
             Listado de profesionales
           </Typography>
         </Box>
-        <TableContainer
-          sx={{ width: "98%", marginBottom: "10px" }}
-          component={Paper}
-        >
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow sx={{ backgroundColor: "#d1ffcb" }}>
-                <>
-                  <TableCell>ID</TableCell>
-                  <TableCell align="center">Doctor</TableCell>
-                  <TableCell align="center">Alta</TableCell>
-                  <TableCell align="center">Consultas</TableCell>
-                  <TableCell align="center">Estado</TableCell>
-                  <TableCell align="center">Matrícula</TableCell>
-                  <TableCell align="center">Acciones</TableCell>
-                </>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  sx={{
-                    "&:last-child td, &:last-child th": { border: 0 },
-                    border: 0,
-                  }}
-                >
-                  <TableCell component="th" scope="row" align="center">
-                    {" "}
-                    {row.id}
-                  </TableCell>
-                  <TableCell component="th" scope="row" align="center">
-                    {" "}
-                    {row.doctor}
-                  </TableCell>
-                  <TableCell align="center">{row.alta}</TableCell>
-                  <TableCell align="center">{row.consults}</TableCell>
-                  <TableCell align="center">{row.state}</TableCell>
-                  <TableCell align="center">{row.matricula}</TableCell>
-                  <TableCell
-                    align="center"
-                    sx={{
-                      color: "#002c54",
-                    }}
-                  >
-                    <SearchIcon
-                      style={{ cursor: "pointer", margin: "0 3px" }}
-                    />
-                    <EditIcon style={{ cursor: "pointer", margin: "0 3px" }} />
-                    <DeleteIcon
-                      style={{ cursor: "pointer", margin: "0 3px" }}
-                    />
-                    <AttachMoneyIcon
-                      style={{ cursor: "pointer", margin: "0 3px" }}
-                    />
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <MUIDataTable
+          title={""}
+          data={rows}
+          columns={columns}
+          options={options}
+        />
       </div>
     </div>
+    </ThemeProvider>
   );
 };
 
