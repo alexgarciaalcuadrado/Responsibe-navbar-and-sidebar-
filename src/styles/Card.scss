@@ -3,8 +3,17 @@
     display: grid;
     grid-template-columns: repeat(4, 260px);
 
-    @include for-laptop {
+    @include for-big-tablet {
         grid-template-columns: repeat(2, 260px);
+        column-gap: 155px;
+    }
+    
+    @include for-small-tablet{
+        column-gap: 30px;
+    }
+
+    @include for-big-phone{
+        grid-template-columns: repeat(1, 260px);
     }
 }
 

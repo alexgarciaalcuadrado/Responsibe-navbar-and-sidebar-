@@ -2,3 +2,16 @@
 @mixin for-laptop {
   @media (max-width: 1300px) { @content; }
 }
+
+
+@mixin for-big-tablet {
+  @media (max-width: 1045px) { @content; }
+}
+
+@mixin for-small-tablet {
+  @media (max-width: 700px) { @content; }
+}
+
+@mixin for-big-phone {
+  @media (max-width: 600px) { @content; }
+}

@@ -7,14 +7,6 @@
     height: max-content;
     margin: 15px;
 
-    .sidebar-menu{
-      @include for-laptop{
-        display: none;
-      }
-      
-    }
-    
-
     div{
       background-color: #002c54;
       color: #ffffff;
@@ -29,37 +21,39 @@
     }
   }
 
+  .sidebar-is-open{
+    display: inline-block !important;
+
+    @include for-laptop {
+      z-index: 9999999;
+      position: absolute;
+    }
+  }
+
+  .sidebar-is-closed{
+    display: none !important;
+  }
+
   .container{
     flex-grow: 1;
     margin-top: 15px;
+
+    @include for-big-tablet {
+      margin: 0;
+      max-width: 100% !important;
+    }
   }
 }
 
-.navbar{
-  background-color: transparent!important;
-  transition: all 0.5s;
-}
-
-.navbar-scrolled{
-  border: none;
-  border-radius: 15px;
-  backdrop-filter: saturate(200%) blur(2.875rem);
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0rem 0rem 0.0625rem 0.0625rem rgba(255, 255, 255, 0.9), 0rem 1.25rem 1.6875rem 0rem rgba(0, 0, 0, 0.05);
-}
-
-.navbar-open-sidebar{
-  display: none !important;
-  color: #626974;
-  margin-right: 25px;
-  cursor: pointer;
-
-  @include for-laptop{
-    display: inline-block !important;
-  }
-}
 
 .dashboard-chart{
   display: flex;
   justify-content: space-around;
+
+  @include for-big-tablet {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
 }

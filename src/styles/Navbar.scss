@@ -1,0 +1,47 @@
+
+.navbar{
+    background-color: transparent!important;
+    transition: all 0.5s;
+  }
+  
+  .navbar-input{
+    @include for-small-tablet {
+      display: none;
+    }
+  }
+  
+  .navbar-icons{
+    display: flex;
+    width: 10%;
+    justify-content: space-around;
+    color: rgb(123, 128, 154);
+  
+    @include for-big-tablet {
+      width: 20%;
+    }
+  }
+  
+  .navbar-collapse{
+    @include for-big-tablet {
+      display: flex;
+    }
+  }
+  
+  .navbar-scrolled{
+    border: none;
+    border-radius: 15px;
+    backdrop-filter: saturate(200%) blur(2.875rem);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0rem 0rem 0.0625rem 0.0625rem rgba(255, 255, 255, 0.9), 0rem 1.25rem 1.6875rem 0rem rgba(0, 0, 0, 0.05);
+  }
+  
+  .navbar-open-sidebar{
+    display: none !important;
+    color: #626974;
+    margin-right: 25px;
+    cursor: pointer;
+  
+    @include for-laptop{
+      display: inline-block !important;
+    }
+  }

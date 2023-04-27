@@ -1,6 +1,7 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import { Box, ListItem, Typography, ListItemText, List } from "@mui/material";
+import { Box, Typography, ListItemText } from "@mui/material";
+import ClearIcon from '@mui/icons-material/Clear';
 import { Link } from "react-router-dom";
 import { items } from "../utils/sibebarPaths";
 import Logo from "../assets/images/logo.png";
@@ -80,6 +81,24 @@ const Item = memo(({ title, to, icon, selected, setSelected, subItems }) => {
 const SidebarLayout = ({ children }) => {
   const [selected, setSelected] = useState("Dashboard");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [sidebarClassName, setSidebarClassName] = useState("sidebar");
+
+  useEffect(() => {
+    function handleResize() {
+      if(window.innerWidth < 1300){
+        setSidebarClassName("sidebar sidebar-is-closed")
+      } else {
+        setSidebarClassName("sidebar sidebar-is-open")
+
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div className="layout">
@@ -97,9 +116,18 @@ const SidebarLayout = ({ children }) => {
           },
         }}
       >
-        <Sidebar className="sidebar">
-          <Menu className="sidebar-menu">
+        <Sidebar className={isSidebarOpen ? "sidebar  sidebar-is-open" : sidebarClassName}>
+          <Menu>
             <Box mb="25px">
+              <Box sx={{
+                position: "absolute",
+                left: "81%",
+                top: "1%",
+              }}>
+                <ClearIcon onClick={() => {
+                setIsSidebarOpen(!isSidebarOpen)
+                }} className="navbar-open-sidebar"/>
+              </Box>
               <Box
                 display="flex"
                 justifyContent="center"

@@ -35,7 +35,7 @@ const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
 
   return (
     <nav className={navClass}>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className=" navbar-collapse" id="navbarSupportedContent">
         <DensityMediumIcon onClick={() => {
             setIsSidebarOpen(!isSidebarOpen)
         }} className="navbar-open-sidebar"/>
@@ -52,6 +52,8 @@ const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
             </a>
           </li>
         </ul>
+          
+        <div className="navbar-input">
         <Input
           sx={{
             border: "1px solid #d2d2d2",
@@ -62,12 +64,9 @@ const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
             type="search"
             placeholder="Buscar"
           />
-        <div style={{
-                display: "flex",
-                width: "10%",
-                justifyContent: "space-around",
-                color: "#7b809a"
-        }}>
+        </div>
+        
+        <div className="navbar-icons">
         <AccountCircleIcon />
         <BuildIcon />
         <NotificationsIcon /> 
