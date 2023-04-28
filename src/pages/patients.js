@@ -51,7 +51,7 @@ const columns = [
     name: "state",
     label: "Activo",
     options: {
-      filter: false,
+      filter: true,
       sort: true,
     },
   },
@@ -59,7 +59,7 @@ const columns = [
     name: "plan",
     label: "Plan",
     options: {
-      filter: false,
+      filter: true,
       sort: true,
     },
   },

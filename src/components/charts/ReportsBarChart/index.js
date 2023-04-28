@@ -36,7 +36,7 @@ function ReportsBarChart({ color, title, description, date, chart, background })
 
   return (
     <div style={{ width: "20rem"}}>
-    <Card sx={{ height: "100%" }}>
+    <Card sx={{ height: "100%",borderRadius:2 }}>
       <Box padding="1rem">
         {useMemo(
           () => (
@@ -52,7 +52,7 @@ function ReportsBarChart({ color, title, description, date, chart, background })
               sx={{
                 background:background,
                 margin: 0,
-                borderRadius: "10px"
+                borderRadius: 2
               }}
             >
               <Bar data={data} options={options} />

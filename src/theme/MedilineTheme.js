@@ -12,7 +12,7 @@ const MedilineTheme = createTheme({
   },
   typography: {
     button:{
-      textTransform:'none'
+      
     },
     fontFamily: 'Raleway, Arial',
   },

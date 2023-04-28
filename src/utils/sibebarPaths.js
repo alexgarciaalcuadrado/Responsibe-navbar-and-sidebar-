@@ -38,7 +38,7 @@ export const items = [
         title: "Prestadores"
       }] 
     },
-    { title: "Ventas", icon: <SellIcon />,
+    { title: "Canales", icon: <SellIcon />,
     subItems:[
       {
         title: "Directa"
@@ -62,7 +62,7 @@ export const items = [
         title: "Esquemas Comisionales"
       }]  
      },
-    { title: "Altas", icon: <MoveToInboxIcon /> },
+    { title: "Ventas", icon: <MoveToInboxIcon /> },
     { title: "Reportes", icon: <AssessmentIcon /> },
     { title: "Configuración", icon: <BuildCircleIcon /> },
     { title: "Cerrar Sesión", icon: <LogoutIcon /> },
