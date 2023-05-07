@@ -11,59 +11,43 @@ import BuildCircleIcon from "@mui/icons-material/BuildCircle";
 
 export const items = [
     { title: "Dashboard", icon: <ViewQuiltIcon />, path:"/" },
-    { title: "Personas", icon: <PeopleAltIcon />, subItems:[
+    { title: "Workers", icon: <PeopleAltIcon />, subItems:[
       {
-        title: "Pacientes", path:"personas/pacientes"
+        title: "Patients", path:"/"
       },
       {
-        title: "Profesionales", path:"personas/profesionales"
+        title: "Professionals", path:"/"
       }]
     },
-    { title: "Consultas", icon: <HandshakeIcon />, subItems:[
+    { title: "Consultations", icon: <HandshakeIcon />, subItems:[
       {
-        title: "Guardia Virtual"
+        title: "Emergencies"
       },
       {
-        title: "Turnos programados"
+        title: "Programated"
       }] 
     },
-    { title: "Convenios", icon: <HandshakeIcon />, subItems:[
+    { title: "Relations", icon: <HandshakeIcon />, subItems:[
       {
-        title: "Empresa"
+        title: "Companies"
       },
       {
-        title: "Gobierno"
-      },
-      {
-        title: "Prestadores"
+        title: "Investors"
       }] 
     },
-    { title: "Canales", icon: <SellIcon />,
+    { title: "Comunication", icon: <SellIcon />,
     subItems:[
       {
-        title: "Directa"
+        title: "Direct"
       },
       {
-        title: "Intermediarios"
+        title: "Intermediaries"
       }]  
     },
-    { title: "Cobranzas", icon: <MonetizationOnIcon />,
-    subItems:[
-      {
-        title: "Entidades de Cobranzas"
-      }]  
-    },
-    { title: "Comisiones", icon: <ReceiptLongIcon />,
-    subItems:[
-      {
-        title: "Liquidación"
-      },
-      {
-        title: "Esquemas Comisionales"
-      }]  
-     },
-    { title: "Ventas", icon: <MoveToInboxIcon /> },
-    { title: "Reportes", icon: <AssessmentIcon /> },
-    { title: "Configuración", icon: <BuildCircleIcon /> },
-    { title: "Cerrar Sesión", icon: <LogoutIcon /> },
+    { title: "Payment", icon: <MonetizationOnIcon />},
+    { title: "Comissions", icon: <ReceiptLongIcon />},
+    { title: "Sales", icon: <MoveToInboxIcon /> },
+    { title: "Reports", icon: <AssessmentIcon /> },
+    { title: "Configuration", icon: <BuildCircleIcon /> },
+    { title: "Log out", icon: <LogoutIcon /> },
   ]

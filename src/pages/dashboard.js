@@ -87,25 +87,25 @@ const Dashboard = () => {
         <div className="dashboard-chart">
           <ReportsBarChart
             color="info"
-            title="Altas por día"
-            description="Total de altas diarias"
-            date="Actualizado hace 1 hora"
+            title="Renovations"
+            description="Total renovations of contract"
+            date="Updated 1 hour ago"
             chart={reportsBarChartData}
             background="linear-gradient(195deg, #49a3f1, #1A73E8)"
           />
           <ReportsBarChart
             color="success"
-            title="Consultas anuales"
-            description="Total de consultas anuales"
-            date="Actualizado hace 1 semana"
+            title="Annual consultations"
+            description="Including emergencies"
+            date="Updated last month"
             chart={sales}
             background="linear-gradient(195deg, #66BB6A, #43A047)"
           />
           <ReportsBarChart
             color="dark"
-            title="Cobranzas mensuales"
-            description="Cobranzas mensuales"
-            date="Actualizado hace 1 hora"
+            title="Monthly sales"
+            description="Total of monthly sales"
+            date="Updated 2 weeks ago"
             chart={tasks}
             background="linear-gradient(195deg, #002c54, #002c54)"
           />

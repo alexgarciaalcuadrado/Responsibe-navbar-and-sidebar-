@@ -10,9 +10,7 @@ import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
     const location = useLocation();
     const [navClass, setNavClass] = useState("navbar sticky-top navbar-expand-lg navbar-light bg-light"); 
-    const pathName = (location?.pathname === "/" && "Dashboard") || 
-        (location?.pathname === "/personas/pacientes" && "Personas / Pacientes") ||
-        (location?.pathname === "/personas/profesionales" && "Personas / Profesionales")
+    const pathName = (location?.pathname === "/" && "Dashboard");
 
 
     const handleScroll = () => {
@@ -65,7 +63,7 @@ const Navbar = ({setIsSidebarOpen, isSidebarOpen}) => {
             marginRight: "10px"
           }}
             type="search"
-            placeholder="Buscar"
+            placeholder="Search"
           />
         </div>
         

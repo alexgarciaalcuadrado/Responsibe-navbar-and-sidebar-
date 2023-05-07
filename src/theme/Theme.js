@@ -1,7 +1,7 @@
 import { createTheme } from '@material-ui/core/styles';
 import Raleway from './Raleway';
 
-const MedilineTheme = createTheme({
+const Theme = createTheme({
   palette: {
     secondary: {
       main: '#DA2037'
@@ -27,4 +27,4 @@ const MedilineTheme = createTheme({
   },
 });
 
-export default MedilineTheme;
+export default Theme;

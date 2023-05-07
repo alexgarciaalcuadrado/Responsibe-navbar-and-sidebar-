@@ -1,5 +1,5 @@
 import Colors from './Colors';
-import MedilineTheme from './MedilineTheme';
+import Theme from './Theme';
 import ApplicationStyle from './ApplicationStyles';
 
-export { Colors, MedilineTheme, ApplicationStyle };
+export { Colors, Theme, ApplicationStyle };

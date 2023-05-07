@@ -30,7 +30,6 @@ const DashboardCard = ({
           sx={{
             maxWidth: 345,
             borderRadius: 2,
-            // boxShadow: "0px 10px 19px -12px rgba(4,2,26,0.62)",
           }}
         >
           <CardContent>

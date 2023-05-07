@@ -5,7 +5,7 @@ import { Box, Typography, ListItemText } from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
 import { Link } from "react-router-dom";
 import { items } from "../utils/sibebarPaths";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/logo.jpg";
 import Navbar from "./Navbar";
 
 
@@ -143,7 +143,11 @@ const SidebarLayout = ({ children }) => {
                   width="100px"
                   height="100px"
                   src={Logo}
-                  style={{ cursor: "pointer", height: "65px" }}
+                  style={{ 
+                    cursor: "pointer", 
+                    height: "76px",
+                    borderRadius: "10px" 
+                  }}
                 />
               </Box>
             </Box>

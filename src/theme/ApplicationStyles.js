@@ -1,7 +1,7 @@
 import Colors from './Colors';
 const ApplicationStyles = {
   btnBlueNext: {
-    backgroundColor: Colors.AzulMediline,
+    backgroundColor: Colors.Blue,
     borderRadius: '25px',
     color: 'white',
     width: '165px',
@@ -10,12 +10,12 @@ const ApplicationStyles = {
       backgroundColor: '#003F77',
     },
     '&:disabled': {
-      backgroundColor: Colors.Azul75,
-      color: Colors.GrisClaro
+      backgroundColor: Colors.Bkue75,
+      color: Colors.LightGrey
     },
   },
   btnSubmitRed: {
-    backgroundColor: Colors.RojoMediline,
+    backgroundColor: Colors.Red,
     borderRadius: '25px',
     width: '165px',
     margin: '0 15px',
@@ -38,7 +38,7 @@ const ApplicationStyles = {
   },
   stepIconRed: {
     '& .MuiStepIcon-root.MuiStepIcon-active': {
-      color: Colors.RojoMediline,
+      color: Colors.Red,
     },
     '& .MuiStepIcon-root.MuiStepIcon-completed': {
       color: 'grey',
@@ -49,8 +49,8 @@ const ApplicationStyles = {
   },
   btnRedNextOutline: {
     backgroundColor: 'white',
-    border: '1px solid ' + Colors.RojoMediline,
-    color: Colors.RojoMediline,
+    border: '1px solid ' + Colors.Red,
+    color: Colors.Red,
     borderRadius: '25px',
     width: '165px',
     margin: '0 15px',
@@ -60,8 +60,8 @@ const ApplicationStyles = {
   },
   btnBlueOutline: {
     backgroundColor: 'white',
-    border: '1px solid ' + Colors.AzulMediline,
-    color: Colors.AzulMediline,
+    border: '1px solid ' + Colors.Blue,
+    color: Colors.Blue,
     borderRadius: '25px',
     width: '165px',
     margin: '0 15px',
@@ -72,14 +72,14 @@ const ApplicationStyles = {
   btnRedNextOutlineDissable: {
     backgroundColor: 'white',
     border: '1px solid rgba(0, 0, 0, 0.26)',
-    color: Colors.RojoMediline,
+    color: Colors.Red,
     borderRadius: '25px',
     width: '165px',
     margin: '0 15px',
   },
   chipAzul: {
     margin: '2px',
-    backgroundColor: Colors.Azul75,
+    backgroundColor: Colors.Bkue75,
     color: 'white',
     '& .MuiChip-deleteIcon': {
       color: 'white',
@@ -87,11 +87,11 @@ const ApplicationStyles = {
   },
   chkAzul: {
     '& .MuiCheckbox-colorSecondary.Mui-checked': {
-      color: Colors.Azul75,
+      color: Colors.Bkue75,
     },
   },
   titleRed: {
-    color: Colors.RojoMediline,
+    color: Colors.Red,
     fontWeight: '800',
     fontSize: '28px',
     margin: '10px',
@@ -116,7 +116,7 @@ const ApplicationStyles = {
     letterSpacing: '0em',
     textAlign: 'center',
     marginBottom: '20px',
-    color: Colors.AzulMediline,
+    color: Colors.Blue,
   },
   subtitleBlue:{
     fontFamily: 'Raleway',
@@ -127,13 +127,13 @@ const ApplicationStyles = {
     letterSpacing: '0em',
     textAlign: 'center',
     marginBottom: '20px',
-    color: Colors.AzulMediline,
+    color: Colors.Blue,
   },
   colorPrimary: {
     color: 'white',
-    backgroundColor: Colors.AzulMediline,
+    backgroundColor: Colors.Blue,
     '& .MuiChip-clickableColorPrimary:hover, .MuiChip-clickableColorPrimary:focus': {
-      backgroundColor: Colors.AzulMediline,
+      backgroundColor: Colors.Blue,
     },
   },
   colorOutLinePrimary: {
@@ -141,7 +141,7 @@ const ApplicationStyles = {
     backgroundColor: 'white',
   },
   ListItemTextRed: {
-    color: Colors.RojoMediline,
+    color: Colors.Red,
   },
   paper: {
     border: "1px solid",
